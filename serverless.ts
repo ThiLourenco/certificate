@@ -20,7 +20,7 @@ const serverlessConfiguration: AWS = {
   // import the function via paths
   functions: { 
     
-   },
+  },
   package: { individually: true },
   custom: {
     esbuild: {
