@@ -1,9 +1,9 @@
 import type { AWS } from '@serverless/typescript';
 
 const serverlessConfiguration: AWS = {
-  service: 'certificateignite',
-  frameworkVersion: '2',
-  plugins: ['serverless-esbuild'],
+  service: 'certificate',
+  frameworkVersion: '3',
+  plugins: ['serverless-esbuild','serverless-offline'],
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
@@ -15,11 +15,22 @@ const serverlessConfiguration: AWS = {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
     },
-    lambdaHashingVersion: '20201221',
   },
   // import the function via paths
   functions: { 
-    
+    hello: {
+      handler: 'src/functions/hello.handler',
+      events: [
+        {
+          http: {
+            path: 'hello',
+            method: 'get',
+
+            cors: true,
+          }
+        }
+      ]
+    }
   },
   package: { individually: true },
   custom: {
