@@ -20,10 +20,10 @@ export const handler: APIGatewayProxyHandler = async (event) => {
   }).promise();
 
   const response = await document.query({
-    TableName: "users_certificate",
-    KeyConditionExpression: "id = :id",
+    TableName: 'users_certificate',
+    KeyConditionExpression: 'id = :id',
     ExpressionAttributeValues: {
-      ":id" : id
+      ':id' : id
     }
   }).promise();
 

@@ -7,6 +7,7 @@ const serverlessConfiguration: AWS = {
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
+    region: "us-east-1",
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
@@ -56,29 +57,29 @@ const serverlessConfiguration: AWS = {
   resources: {
     Resources: {
       dbCertificateUsers: {
-        Type: "AWS::DynamoDB::Table",
+        Type: 'AWS::DynamoDB::Table',
         Properties: {
-          TableName: "users_certificate",
+          TableName: 'users_certificate',
           ProvisionedThroughput: {
             ReadCapacityUnits: 5,
             WriteCapacityUnits: 5
           },
           AttributeDefinitions: [
             {
-              AttributeName: "id",
-              AttributeType: "S"
+              AttributeName: 'id',
+              AttributeType: 'S'
             }
           ],
           KeySchema: [
             {
-              AtributeName: "id",
-              KeyType: "HASH"
+              AttributeName: 'id',
+              KeyType: 'HASH'
             }
-          ]
-        }
-      }
-    }
-  }
+          ],
+        },
+      },
+    },
+  },
 };
 
 module.exports = serverlessConfiguration;
