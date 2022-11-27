@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import { join } from "path";
 import { readFileSync } from 'fs';
 import chromium from 'chrome-aws-lambda';
+import { S3 } from 'aws-sdk';
 
 interface ICreateCertificate {
   id: string;
@@ -80,6 +81,18 @@ export const handler: APIGatewayProxyHandler = async (event) => {
   });
 
   await browser.close();
+
+  const s3 = new S3();
+
+  await s3
+    .putObject({
+      Bucket: 'certificate-serverless-ignite',
+      Key: `${id}.pdf`,
+      ACL: 'public-read',
+      Body: pdf,
+      ContentType: 'application/pdf',
+    })
+    .promise();
 
   return {
     statusCode: 201,
