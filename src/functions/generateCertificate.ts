@@ -41,7 +41,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
 
   const userAlreadyExists = response.Items[0];
   
-  if (userAlreadyExists) {
+  if (!userAlreadyExists) {
     await document.put({
       TableName: 'users_certificate',
       Item: {
