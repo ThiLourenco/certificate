@@ -3,8 +3,8 @@ import { DynamoDB } from 'aws-sdk';
 const options = {
   region: 'localhost',
   endpoint: 'http://localhost:8000',
-  secretAccessKey: "x",
-  accessKeyId: "x"
+  secretAccessKey: 'x',
+  accessKeyId: 'x'
 };
 
 const isOffline = () => {
