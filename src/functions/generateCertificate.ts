@@ -88,6 +88,12 @@ export const handler: APIGatewayProxyHandler = async (event) => {
 
   const s3 = new S3();
 
+  // await s3
+  //   .createBucket({
+  //     Bucket: 'certificate-serverless-ignite',
+  //   })
+  //   .promise();
+
   await s3
     .putObject({
       Bucket: 'certificate-serverless-ignite',
