@@ -106,6 +106,9 @@ export const handler: APIGatewayProxyHandler = async (event) => {
 
   return {
     statusCode: 201,
-    body: JSON.stringify(response.Items[0]),
+    body: JSON.stringify({
+      message: 'Certificate created with success!',
+      url: `https://certificate-serverless-ignite.s3.amazonaws.com/${id}.pdf`,
+    }),
   };
 };
