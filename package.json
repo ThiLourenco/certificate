@@ -5,8 +5,8 @@
   "main": "serverless.ts",
   "scripts": {
     "dev": "serverless offline",
-    "dynamodb:start": "serverless dinamodb start",
-    "dynamodb:install": "serverless dinamodb install",
+    "dynamodb:start": "serverless dynamodb start",
+    "dynamodb:install": "serverless dynamodb install",
     "deploy": "serverless deploy --verbose"
   },
   "engines": {

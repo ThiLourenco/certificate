@@ -24,7 +24,7 @@ const compileTemplate = async (data: ITemplate) => {
   const filePath = join(process.cwd(), "src", "templates", "certificate.hbs");
   const html = readFileSync(filePath, "utf-8");
 
-  return compile(html)(data)
+  return compile(html)(data);
 }
 
 export const handler: APIGatewayProxyHandler = async (event) => {
@@ -65,7 +65,6 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     args: chromium.args,
     defaultViewport: chromium.defaultViewport,
     executablePath: await chromium.executablePath,
-    headless: chromium.headless,
   });
 
   const page = await browser.newPage();
@@ -77,7 +76,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     landscape: true,
     printBackground: true,
     preferCSSPageSize: true,
-    path: process.env.IS_OFFLINE ? "./certificate.pdf" : null
+    path: process.env.IS_OFFLINE ? "./certificate.pdf" : null,
   });
 
   await browser.close();
