@@ -24,8 +24,13 @@ const serverlessConfiguration: AWS = {
             Action: ["dynamodb:*"], 
             Resource: ["*"],
           },
-        ]
-      }
+          {
+            Effect: 'Allow',
+            Action: ['dynamodb:*'],
+            Resource: ['*'],
+          },
+        ],
+      },
     },
   },
   // import the function via paths
@@ -38,10 +43,10 @@ const serverlessConfiguration: AWS = {
             path: 'generateCertificate',
             method: 'post',
             cors: true,
-          }
-        }
-      ]
-    }
+          },
+        },
+      ],
+    },
   },
   package: { individually: true },
   custom: {
@@ -62,8 +67,8 @@ const serverlessConfiguration: AWS = {
         port: 8000,
         inMemory: true,
         migrate: true,
-      }
-    }
+      },
+    },
   },
   resources: {
     Resources: {
@@ -79,13 +84,13 @@ const serverlessConfiguration: AWS = {
             {
               AttributeName: 'id',
               AttributeType: 'S'
-            }
+            },
           ],
           KeySchema: [
             {
               AttributeName: 'id',
               KeyType: 'HASH'
-            }
+            },
           ],
         },
       },
