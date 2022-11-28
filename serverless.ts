@@ -20,9 +20,9 @@ const serverlessConfiguration: AWS = {
       role: {
         statements: [
           {
-            Effect: "Allow", 
-            Action: ["dynamodb:*"], 
-            Resource: ["*"],
+            Effect: 'Allow', 
+            Action: ['dynamodb:*'], 
+            Resource: ['*'],
           },
           {
             Effect: 'Allow',

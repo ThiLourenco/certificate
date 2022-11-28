@@ -88,11 +88,11 @@ export const handler: APIGatewayProxyHandler = async (event) => {
 
   const s3 = new S3();
 
-  await s3
-    .createBucket({
-      Bucket: 'certificate-it-nodejs',
-    })
-    .promise();
+  // await s3
+  //   .createBucket({
+  //     Bucket: 'certificate-it-nodejs',
+  //   })
+  //   .promise();
 
   await s3
     .putObject({
@@ -108,7 +108,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     statusCode: 201,
     body: JSON.stringify({
       message: 'Certificate created with success!',
-      url: `https://certificate-serverless-ignite.s3.amazonaws.com/${id}.pdf`,
+      url: `https://certificate-it-nodejs.s3.amazonaws.com/${id}.pdf`,
     }),
   };
 };

@@ -31,7 +31,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
       body: JSON.stringify({
         message: 'Certificate valid',
         name: userCertificate.name,
-        url: `https://certificate-serverless-ignite.s3.amazonaws.com/${id}.pdf`,
+        url: `https://certificate-it-nodejs.s3.amazonaws.com/${id}.pdf`,
       }),
     };
   }
