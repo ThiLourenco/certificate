@@ -26,7 +26,7 @@ const serverlessConfiguration: AWS = {
           },
           {
             Effect: 'Allow',
-            Action: ['dynamodb:*'],
+            Action: ['s3:*'],
             Resource: ['*'],
           },
         ],

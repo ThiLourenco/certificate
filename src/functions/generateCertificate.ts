@@ -88,15 +88,15 @@ export const handler: APIGatewayProxyHandler = async (event) => {
 
   const s3 = new S3();
 
-  // await s3
-  //   .createBucket({
-  //     Bucket: 'certificate-serverless-ignite',
-  //   })
-  //   .promise();
+  await s3
+    .createBucket({
+      Bucket: 'certificate-it-nodejs',
+    })
+    .promise();
 
   await s3
     .putObject({
-      Bucket: 'certificate-serverless-ignite',
+      Bucket: 'certificate-it-nodejs',
       Key: `${id}.pdf`,
       ACL: 'public-read',
       Body: pdf,
